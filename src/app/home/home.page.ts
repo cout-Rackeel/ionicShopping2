@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Items } from '../models/items';
+import { ShoppingListService } from '../shopping-list.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +9,16 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+
+  constructor(private shoppingListService: ShoppingListService) {}
+
+  items: Items[] = []
+
+  ngOnInit(){
+    this.shoppingListService.getAllItems().subscribe((result) => {
+      if(result.status === 'success') this.items = result.data
+    })
+  }
+
 
 }
