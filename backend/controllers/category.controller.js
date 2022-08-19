@@ -1,5 +1,5 @@
 const { error } = require('console');
-const { JSONResponse } = require('../lib/helper');
+const { JSONResponse } = require('../lib/helpers');
 const Category = require('../models/category.model');
 
 

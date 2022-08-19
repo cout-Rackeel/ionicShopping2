@@ -1,5 +1,5 @@
 const { error } = require('console');
-const { JSONResponse } = require('../lib/helper');
+const { JSONResponse } = require('../lib/helpers')
 const Items = require('../models/items.model');
 
 
@@ -34,10 +34,11 @@ exports.getItemById = async (req, res) => {
 // --------------------
 exports.createItem = async (req, res) => {
     try {
+        console.log(req.body);
         const items = await Items.create(req.body)
         JSONResponse.success(res, 'Success.', items, 201)
     } catch(err) {
-        JSONResponse.err(res, "Failure handling the item model.", err, 500)
+        JSONResponse.err(res, "Failure handling the item model.", err.message, 500)
     }
 }
 

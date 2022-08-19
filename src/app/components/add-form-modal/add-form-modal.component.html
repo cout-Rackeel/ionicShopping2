@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title>Add Items</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <form action="" [formGroup]="addItemsForm">
+      <ion-item>
+        <ion-label>Item Name</ion-label>
+        <ion-input type="text" formControlName="item_name"></ion-input>
+      </ion-item>
+
+
+        <ion-item>
+          <ion-select  formControlName="category" placeholder="Select Category">
+            <ion-select-option
+            [value]="category._id"
+            *ngFor="let category of categories"
+            >
+            {{category.name}}
+          </ion-select-option>
+          </ion-select>
+        </ion-item>
+
+
+      <ion-item>
+        <ion-label>Price</ion-label>
+        <ion-input type="number" formControlName="price"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Quantity</ion-label>
+        <ion-input type="number"   formControlName="quantity"></ion-input>
+      </ion-item>
+
+      <ion-buttons slot="end">
+        <ion-button (click)="confirm()">Confirm</ion-button>
+      </ion-buttons>
+
+    </form>
+  </div>
+</ion-content>

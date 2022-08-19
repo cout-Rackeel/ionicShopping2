@@ -7,46 +7,57 @@
 </ion-header>
 
 <ion-content>
-  <div>
-    <ion-button>
-      <ion-icon name="add-circle-outline"></ion-icon>
-    </ion-button>
-  </div>
-
 
   <div>
     <ion-list>
       <ion-item *ngFor="let item of items">
         <ion-label>
-          <span>{{item.category.name}}</span>
+          <div style="width:100% ; display:flex; justify-content: space-between;">
+            <span>{{item.category.name}}</span>
+
+            <div style="display: flex; gap: .5rem;">
+              <ion-icon name="create-outline"></ion-icon>
+              <ion-icon name="close-circle-outline" (click)="deleteItem(item._id , item.item_name)"></ion-icon>
+            </div>
+          </div>
+
           <h3>{{item.item_name}}</h3>
           <div>
-            <span>{{item.price | currency}}</span>
-            <span>{{item.quantity}}</span>
-            <span>{{item.price * item.quantity}}</span>
+            <p>{{item.price | currency}}</p>
+            <p>{{item.quantity}}</p>
+            <p>{{item.price * item.quantity | currency}}</p>
           </div>
         </ion-label>
       </ion-item>
     </ion-list>
   </div>
 
+  <div>
+    <ion-button (click)="openModal()">
+      <ion-icon name="add-circle-outline"></ion-icon>
+    </ion-button>
+  </div>
+
+  <!-- <ion-tabs>
+    <ion-tab-bar slot="bottom">
+
+      <ion-tab-button routerLink="/">
+        <ion-icon name="basket-outline"></ion-icon>
+        <ion-label>Shopping List</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button routerLink="/category-list">
+        <ion-icon name="pricetag-outline"></ion-icon>
+        <ion-label>Category List</ion-label>
+      </ion-tab-button>
+
+    </ion-tab-bar>
+  </ion-tabs> -->
+
 </ion-content>
 
 
 
 
-<ion-tabs>
-  <ion-tab-bar slot="bottom">
 
-    <ion-tab-button tab="speakers">
-      <ion-icon name="basket-outline"></ion-icon>
-      <a routerLink="/home">Shopping List</a>
-    </ion-tab-button>
 
-    <ion-tab-button tab="map">
-      <ion-icon name="pricetag-outline"></ion-icon>
-      <a routerLink="/category-list">Category List</a>
-    </ion-tab-button>
-
-  </ion-tab-bar>
-</ion-tabs>
