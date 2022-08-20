@@ -5,7 +5,7 @@ import { EditItemPage } from './edit-item.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: ':id',
     component: EditItemPage
   }
 ];

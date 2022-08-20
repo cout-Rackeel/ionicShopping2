@@ -16,7 +16,7 @@
             <span>{{item.category.name}}</span>
 
             <div style="display: flex; gap: .5rem;">
-              <ion-icon name="create-outline"></ion-icon>
+              <ion-icon name="create-outline" (click)="goToEditPage(item._id)"></ion-icon>
               <ion-icon name="close-circle-outline" (click)="deleteItem(item._id , item.item_name)"></ion-icon>
             </div>
           </div>
